@@ -1,3 +1,4 @@
+from points_calculator import points_calculator
 import globals
 import init_deck
 import draw_card
@@ -29,7 +30,7 @@ def main():
     print("Player hand is :", player_hand)
     print("Dealer hand is :", dealer_hand[0], " #")
 
-    prob_math.prob_hiddenCard_10()
+    prob_math.prob_hiddenCard_10(deck)
 
     while True:
         print("Will player draw 1 more card?")
@@ -38,6 +39,8 @@ def main():
             player_hand.append(draw_card.draw_card(deck))
             print("Player hand is :", player_hand)
             print("Dealer hand is : [", dealer_hand[0], ", #]")
+
+            prob_math.prob_next_is10(dealer_hand[1], deck)
             continue
         elif choice == "2":
             break
@@ -45,14 +48,19 @@ def main():
 
 
 
-    input("Press enter to continue")
+    input("Press enter to continue \n")
     print("Dealer's hand is: ", dealer_hand)
+    print("Player hand is :", player_hand)
 
+    print("You have", points_calculator(player_hand), " points")
+    print("Dealer has ", points_calculator(dealer_hand), " points")
+
+    print()
     print("Tens left ", globals.tens )
+    print("Cards left: ", len(deck))
+    print("Next card was : " , draw_card.draw_card(deck))
     
-    print("Next card is : " , draw_card.draw_card(deck))
-    
-    print(deck)
+    #print(deck) #testing purposes
     
 
 
