@@ -1,4 +1,4 @@
-from globals import deck
+import globals
 import init_deck
 import draw_card
 import prob_math
@@ -22,9 +22,6 @@ def main():
     card = draw_card.draw_card(deck)
     player_hand.append(card)
 
-    prob_math.prob_hiddenCard_10()
-    
-
     #Deler's second card is drawn
     card = draw_card.draw_card(deck)
     dealer_hand.append(card)
@@ -32,17 +29,31 @@ def main():
     print("Player hand is :", player_hand)
     print("Dealer hand is :", dealer_hand[0], " #")
 
+    prob_math.prob_hiddenCard_10()
+
+    while True:
+        print("Will player draw 1 more card?")
+        choice = str(input("Enter 1 for Yes and 2 for no : "))
+        if choice == "1":
+            player_hand.append(draw_card.draw_card(deck))
+            print("Player hand is :", player_hand)
+            print("Dealer hand is : [", dealer_hand[0], ", #]")
+            continue
+        elif choice == "2":
+            break
+
+
+
+
     input("Press enter to continue")
     print("Dealer's hand is: ", dealer_hand)
+
+    print("Tens left ", globals.tens )
+    
     print("Next card is : " , draw_card.draw_card(deck))
-
-    '''
-    card = draw_card.draw_card(deck)
-    print(card)
-    print(draw_card.draw_card(deck))
-
+    
     print(deck)
-    '''
+    
 
 
 
