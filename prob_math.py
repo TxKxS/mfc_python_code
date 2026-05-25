@@ -1,11 +1,18 @@
 import globals
 
-def prob_hiddenCard_10(deck=[]):
+
+
+def prob_hiddenCard_10(D2, deck=[]):
 
     #let X be Dealer's hidden card
-    prob_X = globals.tens / len(deck)
-    prob_not_X =  1 - prob_X
     
+    if D2 in globals.tens_list:
+        prob_X = (globals.tens +1)/ len(deck)
+    else:
+        prob_X = globals.tens/ len(deck)
+
+    prob_not_X =  1 - prob_X
+
     print("Probability that the dealer's hidden card is a 10 is:")
     print(prob_X)
 
@@ -14,6 +21,8 @@ def prob_hiddenCard_10(deck=[]):
 
 def prob_next_is10(D2, deck = []):
 
+    #let Y be the next card
+    
     print("Probability next card is a 10 given Dealer's hidden card is 10 is :  ")
     if D2 in globals.tens_list: 
         prob_Y = globals.tens/ len(deck) #If we assume it is 10 and it really is a 10
@@ -29,5 +38,4 @@ def prob_next_is10(D2, deck = []):
     else:
         prob_Y = (globals.tens)/ len(deck) #If we assume it is not a 10 and it is not a 10
         print(prob_Y)
-    
     
