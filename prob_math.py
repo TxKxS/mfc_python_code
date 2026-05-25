@@ -7,9 +7,10 @@ def prob_hiddenCard_10(D2, deck=[]):
     #let X be Dealer's hidden card
     
     if D2 in globals.tens_list:
-        prob_X = (globals.tens +1)/ len(deck)
+        #if dealer's hidden card is 10, need to add one to total count since we do not know as it is hidden
+        prob_X = (globals.tens +1)/ (len(deck) +1)
     else:
-        prob_X = globals.tens/ len(deck)
+        prob_X = globals.tens/ (len(deck) +1)
 
     prob_not_X =  1 - prob_X
 

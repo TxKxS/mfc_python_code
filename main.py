@@ -40,14 +40,17 @@ def main():
     if points_calculator(player_hand) == 21  and points_calculator(dealer_hand) != 21 :
         print("BLACKJACK")
         print("Instant WIN")
+        exit()
     else:
-        if points_calculator(player_hand) != 21 and points_calculator(dealer_hand == 21):
+        if points_calculator(player_hand) != 21 and points_calculator(dealer_hand) == 21:
             print("Dealer Blackjack")
             print("Player lose")
+            exit()
         else:
-            if points_calculator(player_hand) == 21 and points_calculator(dealer_hand == 21):
+            if points_calculator(player_hand) == 21 and points_calculator(dealer_hand) == 21:
                 print("Both player and dealer Blackjack")
                 print("No winner. Push")
+                exit()
 
     while True:
 
@@ -93,7 +96,7 @@ def main():
             print("Dealer has ",dealer_points, " points")
 
             if dealer_points > 21:
-                 print("Dealer bursted player wins.")
+                 print("Dealer burst. Player wins.")
             else:
                 if player_points > dealer_points:
                     print("Player has more points, player wins.")
